@@ -12,34 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'pnpm'
-
-      - name: Enable Corepack and prepare pnpm
-        run: |
-          corepack enable || true
-          corepack prepare pnpm@8 --activate || npm install -g pnpm@8
-
-      - name: Runner debug info
-        run: |
-          node --version
-          npm --version
-          pnpm --version || true
-          echo "PATH=$PATH"
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Ensure pnpm is available
-        run: |
-          if ! command -v pnpm >/dev/null 2>&1; then
-            npm install -g pnpm@8 || (corepack enable && corepack prepare pnpm@8 --activate)
-          fi
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
