@@ -65,7 +65,7 @@ const galleryImages = [
   },
   {
     id: 11,
-    src: "/images/gPQRhUy3MbXX_3230802c.jpg",
+    src: "/images/paint_protection.png",
     alt: "Premium finished vehicle",
     category: "Detailing",
   },

@@ -34,7 +34,7 @@ const serviceDetails: Record<string, any> = {
   "ac-service": {
     title: "AC Service",
     description: "Complete air conditioning system maintenance and repair",
-    image: "/images/gVuhwGr7lPrz_8caffc3d.jpg",
+    image: "/images/ac_service.png",
     fullDescription: "Keep your vehicle's air conditioning system running efficiently. We provide comprehensive AC servicing including refrigerant recharge, filter replacement, and system diagnostics.",
     benefits: [
       "Cool and comfortable interior",
@@ -125,7 +125,7 @@ const serviceDetails: Record<string, any> = {
   "paint-protection": {
     title: "Paint Protection",
     description: "Ceramic coating and paint protection services",
-    image: "/images/gPQRhUy3MbXX_3230802c.jpg",
+    image: "/images/paint_protection.png",
     fullDescription: "Protect your vehicle's paint with our professional ceramic coating service. Provides long-lasting protection against UV rays and environmental contaminants.",
     benefits: [
       "Long-lasting protection",
