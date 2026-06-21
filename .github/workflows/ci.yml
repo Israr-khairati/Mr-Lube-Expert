@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Lint (if available)
+        run: pnpm -s run lint --if-present
+
+      - name: Typecheck (if available)
+        run: pnpm -s run typecheck --if-present
+
+      - name: Build
+        run: pnpm build --if-present
+
+      - name: Test
+        run: pnpm test --if-present
