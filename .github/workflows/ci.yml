@@ -18,6 +18,18 @@ jobs:
           node-version: '18'
           cache: 'pnpm'
 
+      - name: Enable Corepack and prepare pnpm
+        run: |
+          corepack enable || true
+          corepack prepare pnpm@8 --activate || npm install -g pnpm@8
+
+      - name: Runner debug info
+        run: |
+          node --version
+          npm --version
+          pnpm --version || true
+          echo "PATH=$PATH"
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
