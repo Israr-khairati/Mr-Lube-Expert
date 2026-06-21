@@ -8,7 +8,7 @@ const serviceDetails: Record<string, any> = {
   "oil-change": {
     title: "Engine Oil Change",
     description: "Professional engine oil and filter replacement for optimal engine performance",
-    image: "/images/Ia6ntSAiU55k_4b369633.jpeg",
+    image: "/images/oil_change.png",
     fullDescription: "Regular engine oil changes are essential for maintaining your vehicle's engine health and longevity. Our certified technicians use premium quality oils and filters to ensure your engine runs smoothly.",
     benefits: [
       "Improved engine performance",
@@ -21,7 +21,7 @@ const serviceDetails: Record<string, any> = {
   "wheel-alignment": {
     title: "Wheel Alignment",
     description: "Precision wheel alignment using advanced diagnostic equipment",
-    image: "/images/uWp5WR16Kqe2_3cac5771.jpg",
+    image: "/images/wheel_alignment.png",
     fullDescription: "Proper wheel alignment ensures your vehicle handles correctly and your tires wear evenly. Our state-of-the-art alignment equipment provides precise measurements and adjustments.",
     benefits: [
       "Even tire wear",
@@ -86,7 +86,7 @@ const serviceDetails: Record<string, any> = {
   "car-detailing": {
     title: "Car Detailing",
     description: "Professional interior and exterior detailing services",
-    image: "/images/D9ZRfJ0cYuBL_18c6fdae.jpg",
+    image: "/images/car_detailing.png",
     fullDescription: "Restore your vehicle's appearance with our professional detailing services. We clean and protect both interior and exterior surfaces.",
     benefits: [
       "Enhanced appearance",

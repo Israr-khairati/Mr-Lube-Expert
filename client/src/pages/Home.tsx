@@ -11,13 +11,13 @@ const featuredServices = [
     slug: "oil-change",
     title: "Engine Oil Change",
     description: "Professional oil and filter replacement",
-    image: "/images/Ia6ntSAiU55k_4b369633.jpeg",
+    image: "/images/oil_change.png",
   },
   {
     slug: "wheel-alignment",
     title: "Wheel Alignment",
     description: "Precision alignment for optimal handling",
-    image: "/images/uWp5WR16Kqe2_3cac5771.jpg",
+    image: "/images/wheel_alignment.png",
   },
   {
     slug: "ac-service",
@@ -114,7 +114,7 @@ export default function Home() {
             {/* Right Image */}
             <div className="relative h-96 rounded-lg overflow-hidden">
               <img
-                src="/images/MSTB0hFucflE_2c75bb71.jpg"
+                src="/images/hero_workshop.png"
                 alt="Professional automotive workshop"
                 className="w-full h-full object-cover"
               />
