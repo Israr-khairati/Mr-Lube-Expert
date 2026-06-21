@@ -9,14 +9,14 @@ const services = [
     slug: "oil-change",
     title: "Engine Oil Change",
     description: "Professional engine oil and filter replacement for optimal engine performance",
-    image: "/images/Ia6ntSAiU55k_4b369633.jpeg",
+    image: "/images/oil_change.png",
     category: "Lubricants",
   },
   {
     slug: "wheel-alignment",
     title: "Wheel Alignment",
     description: "Precision wheel alignment using advanced diagnostic equipment",
-    image: "/images/uWp5WR16Kqe2_3cac5771.jpg",
+    image: "/images/wheel_alignment.png",
     category: "Repairs",
   },
   {

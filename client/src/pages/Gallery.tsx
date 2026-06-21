@@ -5,7 +5,7 @@ import { SEOHead } from "@/components/SEOHead";
 const galleryImages = [
   {
     id: 1,
-    src: "/images/MSTB0hFucflE_2c75bb71.jpg",
+    src: "/images/hero_workshop.png",
     alt: "Workshop interior with service bays",
     category: "Workshop",
   },
