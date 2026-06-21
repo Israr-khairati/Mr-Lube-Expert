@@ -8,7 +8,7 @@ const serviceDetails: Record<string, any> = {
   "oil-change": {
     title: "Engine Oil Change",
     description: "Professional engine oil and filter replacement for optimal engine performance",
-    image: "/manus-storage/Ia6ntSAiU55k_4b369633.jpeg",
+    image: "/images/Ia6ntSAiU55k_4b369633.jpeg",
     fullDescription: "Regular engine oil changes are essential for maintaining your vehicle's engine health and longevity. Our certified technicians use premium quality oils and filters to ensure your engine runs smoothly.",
     benefits: [
       "Improved engine performance",
@@ -21,7 +21,7 @@ const serviceDetails: Record<string, any> = {
   "wheel-alignment": {
     title: "Wheel Alignment",
     description: "Precision wheel alignment using advanced diagnostic equipment",
-    image: "/manus-storage/uWp5WR16Kqe2_3cac5771.jpg",
+    image: "/images/uWp5WR16Kqe2_3cac5771.jpg",
     fullDescription: "Proper wheel alignment ensures your vehicle handles correctly and your tires wear evenly. Our state-of-the-art alignment equipment provides precise measurements and adjustments.",
     benefits: [
       "Even tire wear",
@@ -34,7 +34,7 @@ const serviceDetails: Record<string, any> = {
   "ac-service": {
     title: "AC Service",
     description: "Complete air conditioning system maintenance and repair",
-    image: "/manus-storage/gVuhwGr7lPrz_8caffc3d.jpg",
+    image: "/images/gVuhwGr7lPrz_8caffc3d.jpg",
     fullDescription: "Keep your vehicle's air conditioning system running efficiently. We provide comprehensive AC servicing including refrigerant recharge, filter replacement, and system diagnostics.",
     benefits: [
       "Cool and comfortable interior",
@@ -47,7 +47,7 @@ const serviceDetails: Record<string, any> = {
   "brake-service": {
     title: "Brake Service",
     description: "Brake inspection, pads replacement, and system servicing",
-    image: "/manus-storage/6cxLRUtXIkkR_74ff9e32.jpeg",
+    image: "/images/6cxLRUtXIkkR_74ff9e32.jpeg",
     fullDescription: "Your safety depends on reliable brakes. We offer complete brake services including pad replacement, rotor resurfacing, and system inspections.",
     benefits: [
       "Enhanced safety",
@@ -60,7 +60,7 @@ const serviceDetails: Record<string, any> = {
   "suspension-repair": {
     title: "Suspension Repair",
     description: "Suspension system maintenance and component replacement",
-    image: "/manus-storage/xxa8SdUmv6fc_94cf6f57.jpg",
+    image: "/images/xxa8SdUmv6fc_94cf6f57.jpg",
     fullDescription: "A well-maintained suspension system ensures a smooth ride and proper vehicle handling. We repair and replace suspension components including shocks, struts, and springs.",
     benefits: [
       "Smooth ride quality",
@@ -73,7 +73,7 @@ const serviceDetails: Record<string, any> = {
   "tire-service": {
     title: "Tire Service",
     description: "Tire replacement, balancing, and rotation services",
-    image: "/manus-storage/V8nJ7AkpWb9N_5a441a20.webp",
+    image: "/images/V8nJ7AkpWb9N_5a441a20.webp",
     fullDescription: "Keep your tires in optimal condition with our comprehensive tire services including replacement, balancing, rotation, and repair.",
     benefits: [
       "Extended tire life",
@@ -86,7 +86,7 @@ const serviceDetails: Record<string, any> = {
   "car-detailing": {
     title: "Car Detailing",
     description: "Professional interior and exterior detailing services",
-    image: "/manus-storage/D9ZRfJ0cYuBL_18c6fdae.jpg",
+    image: "/images/D9ZRfJ0cYuBL_18c6fdae.jpg",
     fullDescription: "Restore your vehicle's appearance with our professional detailing services. We clean and protect both interior and exterior surfaces.",
     benefits: [
       "Enhanced appearance",
@@ -99,7 +99,7 @@ const serviceDetails: Record<string, any> = {
   "foam-wash": {
     title: "Foam Wash",
     description: "High-pressure foam wash for thorough vehicle cleaning",
-    image: "/manus-storage/GczmxzOhwp5Q_b1793735.jpg",
+    image: "/images/GczmxzOhwp5Q_b1793735.jpg",
     fullDescription: "Our foam wash service provides a thorough and gentle cleaning of your vehicle using premium foam and high-pressure equipment.",
     benefits: [
       "Thorough cleaning",
@@ -112,7 +112,7 @@ const serviceDetails: Record<string, any> = {
   "engine-inspection": {
     title: "Engine Inspection",
     description: "Comprehensive engine diagnostic and inspection services",
-    image: "/manus-storage/NwjxDq3Vowfz_ff9458cb.jpg",
+    image: "/images/NwjxDq3Vowfz_ff9458cb.jpg",
     fullDescription: "Identify potential engine issues before they become major problems. Our comprehensive diagnostics use advanced equipment to assess engine health.",
     benefits: [
       "Early problem detection",
@@ -125,7 +125,7 @@ const serviceDetails: Record<string, any> = {
   "paint-protection": {
     title: "Paint Protection",
     description: "Ceramic coating and paint protection services",
-    image: "/manus-storage/gPQRhUy3MbXX_3230802c.jpg",
+    image: "/images/gPQRhUy3MbXX_3230802c.jpg",
     fullDescription: "Protect your vehicle's paint with our professional ceramic coating service. Provides long-lasting protection against UV rays and environmental contaminants.",
     benefits: [
       "Long-lasting protection",

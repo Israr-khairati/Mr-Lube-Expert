@@ -11,13 +11,13 @@ const featuredServices = [
     slug: "oil-change",
     title: "Engine Oil Change",
     description: "Professional oil and filter replacement",
-    image: "/manus-storage/Ia6ntSAiU55k_4b369633.jpeg",
+    image: "/images/Ia6ntSAiU55k_4b369633.jpeg",
   },
   {
     slug: "wheel-alignment",
     title: "Wheel Alignment",
     description: "Precision alignment for optimal handling",
-    image: "/manus-storage/uWp5WR16Kqe2_3cac5771.jpg",
+    image: "/images/uWp5WR16Kqe2_3cac5771.jpg",
   },
   {
     slug: "ac-service",
@@ -114,7 +114,7 @@ export default function Home() {
             {/* Right Image */}
             <div className="relative h-96 rounded-lg overflow-hidden">
               <img
-                src="/manus-storage/MSTB0hFucflE_2c75bb71.jpg"
+                src="/images/MSTB0hFucflE_2c75bb71.jpg"
                 alt="Professional automotive workshop"
                 className="w-full h-full object-cover"
               />
@@ -279,12 +279,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {[
-              "/manus-storage/Ewl6CDfxAln8_d34f3c94.jpg",
-              "/manus-storage/ocVPm1VoIUNU_3a200d2b.jpg",
-              "/manus-storage/IG5RiKfI2u4y_15b1e5de.jpg",
-              "/manus-storage/uKKMSA1HmDDp_0ba3896d.jpg",
-              "/manus-storage/giMoQ7EPwr5k_3abf4dec.jpg",
-              "/manus-storage/hwibAicxINJP_7f7c9755.jpg",
+              "/images/Ewl6CDfxAln8_d34f3c94.jpg",
+              "/images/ocVPm1VoIUNU_3a200d2b.jpg",
+              "/images/IG5RiKfI2u4y_15b1e5de.jpg",
+              "/images/uKKMSA1HmDDp_0ba3896d.jpg",
+              "/images/giMoQ7EPwr5k_3abf4dec.jpg",
+              "/images/hwibAicxINJP_7f7c9755.jpg",
             ].map((image, index) => (
               <div key={index} className="relative h-48 rounded-lg overflow-hidden group">
                 <img
