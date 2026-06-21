@@ -23,6 +23,12 @@ jobs:
         with:
           version: 8
 
+      - name: Ensure pnpm is available
+        run: |
+          if ! command -v pnpm >/dev/null 2>&1; then
+            npm install -g pnpm@8 || (corepack enable && corepack prepare pnpm@8 --activate)
+          fi
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Lint (if available)
