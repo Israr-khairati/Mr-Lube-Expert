@@ -1,5 +1,5 @@
-import { storagePut } from "./storage";
-import { ENV } from "./_core/env";
+import { ENV } from "./_core/env.js";
+import { storagePut } from "./storage.js";
 import fs from "fs/promises";
 import path from "path";
 import crypto from "crypto";
