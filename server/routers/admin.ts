@@ -14,30 +14,34 @@ import crypto from "crypto";
 
 // Auto-seed function for default admin
 async function ensureAdminExists() {
-  const db = await getDb();
-  if (!db) return;
+  try {
+    const db = await getDb();
+    if (!db) return;
 
-  const existing = await db.select().from(adminCredentials).limit(1);
-  if (existing.length === 0) {
-    let password = ENV.adminDefaultPassword;
-    let isRandom = false;
-    if (!password) {
-      password = crypto.randomBytes(12).toString("hex") + "Admin!23";
-      isRandom = true;
+    const existing = await db.select().from(adminCredentials).limit(1);
+    if (existing.length === 0) {
+      let password = ENV.adminDefaultPassword;
+      let isRandom = false;
+      if (!password) {
+        password = crypto.randomBytes(12).toString("hex") + "Admin!23";
+        isRandom = true;
+      }
+      const passwordHash = await hashPassword(password);
+      await db.insert(adminCredentials).values({
+        username: "admin",
+        email: "admin@mrlubeexpert.com",
+        passwordHash,
+      });
+      if (isRandom) {
+        console.warn(
+          `[Seeding] ADMIN_DEFAULT_PASSWORD env variable not set! Generated random admin password: ${password}`
+        );
+      } else {
+        console.log("[Seeding] Default admin created using configured ADMIN_DEFAULT_PASSWORD");
+      }
     }
-    const passwordHash = await hashPassword(password);
-    await db.insert(adminCredentials).values({
-      username: "admin",
-      email: "admin@mrlubeexpert.com",
-      passwordHash,
-    });
-    if (isRandom) {
-      console.warn(
-        `[Seeding] ADMIN_DEFAULT_PASSWORD env variable not set! Generated random admin password: ${password}`
-      );
-    } else {
-      console.log("[Seeding] Default admin created using configured ADMIN_DEFAULT_PASSWORD");
-    }
+  } catch (error: any) {
+    console.error("[Seeding] Failed to ensure admin exists:", error.message || error);
   }
 }
 
@@ -60,15 +64,24 @@ export const adminRouter = router({
       }
 
       // Check credentials
-      const records = await db
-        .select()
-        .from(adminCredentials)
-        .where(
-          input.usernameOrEmail.includes("@")
-            ? eq(adminCredentials.email, input.usernameOrEmail)
-            : eq(adminCredentials.username, input.usernameOrEmail)
-        )
-        .limit(1);
+      let records;
+      try {
+        records = await db
+          .select()
+          .from(adminCredentials)
+          .where(
+            input.usernameOrEmail.includes("@")
+              ? eq(adminCredentials.email, input.usernameOrEmail)
+              : eq(adminCredentials.username, input.usernameOrEmail)
+          )
+          .limit(1);
+      } catch (error: any) {
+        const detail = error.cause?.message || error.cause || error.message || error;
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: `Database query failed: ${detail}`,
+        });
+      }
 
       if (records.length === 0) {
         throw new TRPCError({
