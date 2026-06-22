@@ -17,7 +17,24 @@ import Reviews from "./pages/Reviews";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 
+import { useLocation } from "wouter";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+
 function Router() {
+  const [location] = useLocation();
+  const isAdminRoute = location.startsWith("/admin");
+
+  if (isAdminRoute) {
+    return (
+      <Switch>
+        <Route path={"/admin/login"} component={AdminLogin} />
+        <Route path={"/admin"} component={AdminDashboard} />
+        <Route component={NotFound} />
+      </Switch>
+    );
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />

@@ -82,3 +82,39 @@ export const reviews = pgTable("reviews", {
 
 export type Review = typeof reviews.$inferSelect;
 export type InsertReview = typeof reviews.$inferInsert;
+
+export const adminCredentials = pgTable("adminCredentials", {
+  id: serial("id").primaryKey(),
+  username: varchar("username", { length: 255 }).notNull().unique(),
+  email: varchar("email", { length: 320 }).notNull().unique(),
+  passwordHash: text("passwordHash").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().$onUpdate(() => new Date()).notNull(),
+});
+
+export type AdminCredential = typeof adminCredentials.$inferSelect;
+export type InsertAdminCredential = typeof adminCredentials.$inferInsert;
+
+export const siteContent = pgTable("siteContent", {
+  id: serial("id").primaryKey(),
+  key: varchar("key", { length: 255 }).notNull().unique(),
+  value: text("value").notNull(), // can store JSON strings
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().$onUpdate(() => new Date()).notNull(),
+});
+
+export type SiteContent = typeof siteContent.$inferSelect;
+export type InsertSiteContent = typeof siteContent.$inferInsert;
+
+export const mediaFiles = pgTable("mediaFiles", {
+  id: serial("id").primaryKey(),
+  url: text("url").notNull(),
+  category: varchar("category", { length: 100 }).notNull(), // e.g. "gallery", "services", "hero"
+  title: varchar("title", { length: 255 }),
+  description: text("description"),
+  position: integer("position").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type MediaFile = typeof mediaFiles.$inferSelect;
+export type InsertMediaFile = typeof mediaFiles.$inferInsert;

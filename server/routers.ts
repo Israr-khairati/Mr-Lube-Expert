@@ -5,9 +5,11 @@ import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import { createBooking, createContactSubmission, createReview, getApprovedReviews } from "./db";
 import { notifyOwner } from "./_core/notification";
+import { adminRouter } from "./routers/admin";
 
 export const appRouter = router({
   system: systemRouter,
+  admin: adminRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
     logout: publicProcedure.mutation(({ ctx }) => {
