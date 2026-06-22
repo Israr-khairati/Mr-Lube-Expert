@@ -5,7 +5,7 @@ import { getSessionCookieOptions } from "../_core/cookies.js";
 import { COOKIE_NAME } from "../../shared/const.js";
 import { sdk } from "../_core/sdk.js";
 import { getDb } from "../db.js";
-import { adminCredentials, users, bookings, reviews, siteContent, mediaFiles } from "../../drizzle/schema";
+import { adminCredentials, users, bookings, reviews, siteContent, mediaFiles } from "../../drizzle/schema.js";
 import { eq, desc, asc } from "drizzle-orm";
 import { hashPassword, verifyPassword } from "../_core/password.js";
 import { uploadFile } from "../storageHelper.js";
