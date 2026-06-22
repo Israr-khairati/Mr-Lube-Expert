@@ -14,5 +14,6 @@ export async function verifyPassword(password: string, hash: string): Promise<bo
   if (!salt || !key) return false;
   const derivedKey = (await scryptAsync(password, salt, 64)) as Buffer;
   const keyBuffer = Buffer.from(key, "hex");
+  if (derivedKey.length !== keyBuffer.length) return false;
   return timingSafeEqual(derivedKey, keyBuffer);
 }

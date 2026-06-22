@@ -90,10 +90,8 @@ export default function AdminLogin() {
               >
                 {isLoading ? "Signing in..." : "Secure Login"}
               </Button>
-              <div className="text-center text-xs text-secondary-foreground">
-                <p>Default credentials (auto-seeded):</p>
-                <p className="mt-1 font-mono text-[#D2FF00]/80">admin / [Configured ADMIN_DEFAULT_PASSWORD]</p>
-              </div>
+
+
             </CardFooter>
           </form>
         </Card>
