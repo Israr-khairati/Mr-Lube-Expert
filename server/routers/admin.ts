@@ -9,6 +9,8 @@ import { adminCredentials, users, bookings, reviews, siteContent, mediaFiles } f
 import { eq, desc, asc } from "drizzle-orm";
 import { hashPassword, verifyPassword } from "../_core/password";
 import { uploadFile } from "../storageHelper";
+import { ENV } from "../_core/env";
+import crypto from "crypto";
 
 // Auto-seed function for default admin
 async function ensureAdminExists() {
@@ -17,13 +19,25 @@ async function ensureAdminExists() {
 
   const existing = await db.select().from(adminCredentials).limit(1);
   if (existing.length === 0) {
-    const passwordHash = await hashPassword("AdminSecretPass123!");
+    let password = ENV.adminDefaultPassword;
+    let isRandom = false;
+    if (!password) {
+      password = crypto.randomBytes(12).toString("hex") + "Admin!23";
+      isRandom = true;
+    }
+    const passwordHash = await hashPassword(password);
     await db.insert(adminCredentials).values({
       username: "admin",
       email: "admin@mrlubeexpert.com",
       passwordHash,
     });
-    console.log("[Seeding] Default admin created (username: admin, password: AdminSecretPass123!)");
+    if (isRandom) {
+      console.warn(
+        `[Seeding] ADMIN_DEFAULT_PASSWORD env variable not set! Generated random admin password: ${password}`
+      );
+    } else {
+      console.log("[Seeding] Default admin created using configured ADMIN_DEFAULT_PASSWORD");
+    }
   }
 }
 
