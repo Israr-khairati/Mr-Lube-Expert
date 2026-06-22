@@ -1,15 +1,15 @@
-import { adminProcedure, publicProcedure, router } from "../_core/trpc";
+import { adminProcedure, publicProcedure, router } from "../_core/trpc.js";
 import { z } from "zod";
 import { TRPCError } from "@trpc/server";
-import { getSessionCookieOptions } from "../_core/cookies";
+import { getSessionCookieOptions } from "../_core/cookies.js";
 import { COOKIE_NAME } from "../../shared/const.js";
-import { sdk } from "../_core/sdk";
-import { getDb } from "../db";
+import { sdk } from "../_core/sdk.js";
+import { getDb } from "../db.js";
 import { adminCredentials, users, bookings, reviews, siteContent, mediaFiles } from "../../drizzle/schema";
 import { eq, desc, asc } from "drizzle-orm";
-import { hashPassword, verifyPassword } from "../_core/password";
-import { uploadFile } from "../storageHelper";
-import { ENV } from "../_core/env";
+import { hashPassword, verifyPassword } from "../_core/password.js";
+import { uploadFile } from "../storageHelper.js";
+import { ENV } from "../_core/env.js";
 import crypto from "crypto";
 
 // Auto-seed function for default admin
