@@ -8,6 +8,13 @@
       "when": 1782024524208,
       "tag": "0000_swift_ogun",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1782109397068,
+      "tag": "0001_flowery_vulture",
+      "breakpoints": true
     }
   ]
 }

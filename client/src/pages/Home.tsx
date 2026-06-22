@@ -5,6 +5,7 @@ import { ArrowRight, Star, Zap, Shield, Users } from "lucide-react";
 import { useState, useEffect } from "react";
 import { SEOHead, LocalBusinessSchema } from "@/components/SEOHead";
 import FAQ from "@/components/FAQ";
+import { trpc } from "@/lib/trpc";
 
 const featuredServices = [
   {
@@ -67,11 +68,18 @@ function Counter({ target, label }: { target: number; label: string }) {
 }
 
 export default function Home() {
+  const { data: siteContent } = trpc.admin.content.get.useQuery();
+  const { data: mediaItems } = trpc.admin.media.list.useQuery();
+
+  const heroTitle = siteContent?.hero_title || "Precision Vehicle Care";
+  const heroSubtitle = siteContent?.hero_subtitle || "Professional automotive service and repair solutions for all vehicle types in Hubli, Karnataka.";
+  const whatsappLink = siteContent?.whatsapp_link || "https://wa.me/919538223688?text=Hi%20MR%20LUBE%20EXPERT%2C%20I%20need%20assistance";
+
   return (
     <>
       <SEOHead
         title="MR LUBE EXPERT - Professional Vehicle Care & Repair Solutions in Hubli"
-        description="Premium automotive service center in Hubli, Karnataka. Oil change, wheel alignment, AC service, brake service, and more. Expert technicians, advanced equipment, guaranteed quality."
+        description={siteContent?.seo_description || "Premium automotive service center in Hubli, Karnataka. Oil change, wheel alignment, AC service, brake service, and more. Expert technicians, advanced equipment, guaranteed quality."}
         canonical="https://mrlubexpert.com/"
       />
       <LocalBusinessSchema />
@@ -86,10 +94,10 @@ export default function Home() {
                 className="text-6xl md:text-7xl font-bold text-foreground mb-6 leading-tight"
                 style={{ fontFamily: "Space Grotesk" }}
               >
-                Precision Vehicle Care
+                {heroTitle}
               </h1>
               <p className="text-xl text-secondary-foreground mb-8 leading-relaxed">
-                Professional automotive service and repair solutions for all vehicle types in Hubli, Karnataka.
+                {heroSubtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/book-service">
@@ -100,7 +108,7 @@ export default function Home() {
                   </a>
                 </Link>
                 <a
-                  href="https://wa.me/919538223688?text=Hi%20MR%20LUBE%20EXPERT%2C%20I%20need%20assistance"
+                  href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -278,14 +286,17 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {[
-              "/images/Ewl6CDfxAln8_d34f3c94.jpg",
-              "/images/ocVPm1VoIUNU_3a200d2b.jpg",
-              "/images/IG5RiKfI2u4y_15b1e5de.jpg",
-              "/images/uKKMSA1HmDDp_0ba3896d.jpg",
-              "/images/giMoQ7EPwr5k_3abf4dec.jpg",
-              "/images/hwibAicxINJP_7f7c9755.jpg",
-            ].map((image, index) => (
+            {((mediaItems || []).filter((item: any) => item.category === "gallery").map((item: any) => item.url).length > 0
+              ? (mediaItems || []).filter((item: any) => item.category === "gallery").map((item: any) => item.url).slice(0, 6)
+              : [
+                  "/images/Ewl6CDfxAln8_d34f3c94.jpg",
+                  "/images/ocVPm1VoIUNU_3a200d2b.jpg",
+                  "/images/IG5RiKfI2u4y_15b1e5de.jpg",
+                  "/images/uKKMSA1HmDDp_0ba3896d.jpg",
+                  "/images/giMoQ7EPwr5k_3abf4dec.jpg",
+                  "/images/hwibAicxINJP_7f7c9755.jpg",
+                ]
+            ).map((image: string, index: number) => (
               <div key={index} className="relative h-48 rounded-lg overflow-hidden group">
                 <img
                   src={image}
@@ -337,19 +348,20 @@ export default function Home() {
                 <div>
                   <p className="text-accent font-semibold mb-2">Address</p>
                   <p className="text-foreground">
-                    Opp. Murdeshwar Factory, Shivaji Layout, R N Shetty Road, Hubli, Karnataka 580024
+                    {siteContent?.contact_address || "Opp. Murdeshwar Factory, Shivaji Layout, R N Shetty Road, Hubli, Karnataka 580024"}
                   </p>
                 </div>
                 <div>
                   <p className="text-accent font-semibold mb-2">Phone</p>
-                  <p className="text-foreground">+91 9538223688</p>
-                  <p className="text-foreground">+91 7676317355</p>
+                  {(siteContent?.contact_phones || "+91 9538223688, +91 7676317355").split(",").map((phone, idx) => (
+                    <p key={idx} className="text-foreground">{phone.trim()}</p>
+                  ))}
                 </div>
                 <div>
                   <p className="text-accent font-semibold mb-2">Hours</p>
-                  <p className="text-foreground">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                  <p className="text-foreground">Saturday: 9:00 AM - 2:00 PM</p>
-                  <p className="text-foreground">Sunday: Closed</p>
+                  {(siteContent?.business_hours || "Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSunday: Closed").split("\n").map((line, idx) => (
+                    <p key={idx} className="text-foreground">{line}</p>
+                  ))}
                 </div>
               </div>
             </div>
