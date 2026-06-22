@@ -2,7 +2,7 @@ import { adminProcedure, publicProcedure, router } from "../_core/trpc";
 import { z } from "zod";
 import { TRPCError } from "@trpc/server";
 import { getSessionCookieOptions } from "../_core/cookies";
-import { COOKIE_NAME } from "@shared/const";
+import { COOKIE_NAME } from "../../shared/const.js";
 import { sdk } from "../_core/sdk";
 import { getDb } from "../db";
 import { adminCredentials, users, bookings, reviews, siteContent, mediaFiles } from "../../drizzle/schema";
